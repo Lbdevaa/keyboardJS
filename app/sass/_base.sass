@@ -1,0 +1,33 @@
+*
+	box-sizing: border-box
+	&:before, &:after
+		box-sizing: border-box
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.35
+	font-family: raleway-example, sans-serif
+	overflow-x: hidden
+	opacity: 1
+	font-weight: normal
+
+@function em($pixels, $context: 16px) 
+  @return #{$pixels/$context}em
+
+@function rem($pixels, $context: 16px) 
+  @return #{$pixels/$context}rem
+
+.grid 
+	display: grid
+
+.container 
+	margin: auto
+	max-width: 1200px
+	padding: 0 20px
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
