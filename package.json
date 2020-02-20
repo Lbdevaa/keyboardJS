@@ -1,12 +1,12 @@
 {
-  "name": "css-grid-html-template",
+  "name": "keyboard-js",
   "version": "2.0.0",
   "description": "Simple css grid Start Template (Sass, Browsersync, Uglify, cleanCSS, Autoprefixer, imageMin)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "dan3439",
+  "author": "merakaa",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
