@@ -1,8 +1,5 @@
-let resultPrint = document.querySelector('.space__result');
- 
-let box = document.querySelector('.box');
-let keyboardAlpabet = document.querySelector('.keyboard__alphabet');
-let keyboardKey = document.querySelectorAll('.keyboad__key');
+let resultPrint = document.querySelector('.space__result'); 
+let box = document.querySelector('.box');  
 
 box.addEventListener('click', e => {
     
@@ -11,12 +8,7 @@ box.addEventListener('click', e => {
 
     if (target !== null) {
         handleMoreKey(e.target.closest('a'));
-    }
-
-    if (e.target.classList.contains('keyboard__key')) {
-        // resultPrint.value += e.target.innerHTML; 
-        // console.log(e.target.innerHTML);
-    }
+    } 
 })
 
 function handleMoreKey(target) {
@@ -32,9 +24,9 @@ function handleMoreKey(target) {
         resultPrint.value += target.innerHTML;
     }
     if (target.classList.contains('more-key_lang')) {
-        let keyboards = document.querySelectorAll('.keyboard__alphabet');
-
+        let keyboards = document.querySelectorAll('.keyboard__alphabet'); 
         let n = keyboards.length;
+
         if (target.innerHTML === 'RUS') {
             target.innerHTML = 'ENG';
         } else {
@@ -48,7 +40,6 @@ function handleMoreKey(target) {
                 break;
             }
         }
-
     }
 }
 
@@ -92,52 +83,58 @@ keyLang.innerHTML = 'RUS'
 let keyboard = document.createElement('div');
 keyboard.classList = 'keyboard grid';
 
-let alphabet = document.createElement('div');
-alphabet.classList = 'keyboard__alphabet keyboard__alphabet_en active';
-alphabet.text = 'a'
+// let alphabet = document.createElement('div');
+// alphabet.classList = 'keyboard__alphabet keyboard__alphabet_en active';
+// alphabet.text = 'a'
 
 let numbers = document.createElement('div');
 numbers.className = 'keyboard__numbers'; 
 
-let keyNumbers = document.createElement('a');
-keyNumbers.href ='';
-keyNumbers.setAttribute ('data-key', 'char');
-keyNumbers.className = 'keyboard__key';
-keyNumbers.text = '0';
+// let keyNumbers = document.createElement('a');
+// keyNumbers.href ='';
+// keyNumbers.setAttribute ('data-key', 'char');
+// keyNumbers.className = 'keyboard__key';
+// keyNumbers.text = '0';
  
 // родитель
 let buildKeyboard = document.querySelector('.build') 
 
 //добавление 
+ 
+space.innerHTML += spaceResult.outerHTML + keyDel.outerHTML  + keySpace.outerHTML + keyLang.outerHTML; 
+keyboard.appendChild(createRU());
+keyboard.appendChild(createNumbers()); 
+buildKeyboard.innerHTML += space.outerHTML + keyboard.outerHTML;  
 
-// buildKeyboard.appendChild(space); 
-space.innerHTML += spaceResult.outerHTML + keyDel.outerHTML  + keySpace.outerHTML + keyLang.outerHTML;
-// buildKeyboard.innerHTML += ;
-numbers.innerHTML = keyNumbers.outerHTML;
-keyboard.innerHTML += alphabet.outerHTML + numbers.outerHTML; 
+function createNumbers() {
+    let keyNumbers = document.createElement('div');
+    keyNumbers.className = 'keyboard__numbers';
 
-
-buildKeyboard.innerHTML += space.outerHTML + keyboard.outerHTML;
-// space.appendChild(spaceResult)
-
-// space.appendChild(keyDel)
+    for (let i = 0; i< 10; i++){
+        let keyboardKey = document.createElement('a')
+        keyboardKey.href ='';
+        keyboardKey.setAttribute ('data-key', 'char');
+        keyboardKey.className = 'keyboard__key';
+        keyboardKey.text = i;
+        keyNumbers.appendChild(keyboardKey);
+    }
+    return keyNumbers;
+} 
 
 function createRU() {
     
     let alphabet = document.createElement('div');
     alphabet.classList = 'keyboard__alphabet keyboard__alphabet_ru active';
-    alphabet.text = 'a'
+    alphabet.text = 'a'; 
     
     for (let i = 1072; i < 1072+32; i++) {
         let keyboardABC = document.createElement('a');
+        keyboardABC.href ='';
         keyboardABC.className = 'keyboard__key';
-        keyboardABC.innerHTML = String.fromCharCode(i);
-        // console.log(keyboardABC);
-        alphabet.appendChild(keyboardABC)
-        // console.log(String.fromCharCode(i))
+        keyboardABC.innerHTML = String.fromCharCode(i); 
+        alphabet.appendChild(keyboardABC); 
     }
-    return alphabet;
-    
+    return alphabet; 
 }
 console.log(createRU());
 
@@ -147,4 +144,4 @@ function createLang(name, start, end) {
     languages[name] = [start, end];
 }
 createLang('ru', 1040, 1072)
-console.log(languages)
+console.log('arrayLang:', languages)
