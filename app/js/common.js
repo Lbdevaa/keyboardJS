@@ -61,14 +61,7 @@ let tapKey = e => {
 } 
 
 window.addEventListener('keydown', tapKey);
-
-//
-// let sp = document.querySelector('.sp');
-// for(abc = '&11072'; abc++)
-// let arabc = '&#1072'
-// sp.innerHTML = arabc
-
-
+ 
 
 // build Keyboards on class build
 //дети
@@ -132,7 +125,7 @@ buildKeyboard.innerHTML += space.outerHTML + keyboard.outerHTML;
 function createRU() {
     
     let alphabet = document.createElement('div');
-    alphabet.classList = 'keyboard__alphabet keyboard__alphabet_en active';
+    alphabet.classList = 'keyboard__alphabet keyboard__alphabet_ru active';
     alphabet.text = 'a'
     
     for (let i = 1072; i < 1072+32; i++) {
@@ -147,3 +140,11 @@ function createRU() {
     
 }
 console.log(createRU());
+
+// Чтобы создать язык - createLang с указанием начала алфавита и конечной буквы. 'ru', '1072' '1104'
+let languages = []
+function createLang(name, start, end) {
+    languages[name] = [start, end];
+}
+createLang('ru', 1040, 1072)
+console.log(languages)
