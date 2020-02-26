@@ -68,7 +68,7 @@ window.addEventListener('keydown', tapKey);
 // let arabc = '&#1072'
 // sp.innerHTML = arabc
 
-/*
+
 
 // build Keyboards on class build
 //дети
@@ -128,4 +128,22 @@ buildKeyboard.innerHTML += space.outerHTML + keyboard.outerHTML;
 // space.appendChild(spaceResult)
 
 // space.appendChild(keyDel)
-*/
+
+function createRU() {
+    
+    let alphabet = document.createElement('div');
+    alphabet.classList = 'keyboard__alphabet keyboard__alphabet_en active';
+    alphabet.text = 'a'
+    
+    for (let i = 1072; i < 1072+32; i++) {
+        let keyboardABC = document.createElement('a');
+        keyboardABC.className = 'keyboard__key';
+        keyboardABC.innerHTML = String.fromCharCode(i);
+        // console.log(keyboardABC);
+        alphabet.appendChild(keyboardABC)
+        // console.log(String.fromCharCode(i))
+    }
+    return alphabet;
+    
+}
+console.log(createRU());
