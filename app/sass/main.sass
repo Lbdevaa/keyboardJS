@@ -17,7 +17,35 @@
     // width: 40px
     // height: 40px
     // display: inline-block
-    // background-color: #0000ff5c
+    &_del
+        position: relative
+        width: 40px
+        height: 40px
+        display: inline-block
+        &::after
+            // background-color: #0000ff5c
+            background: url(../img/del.svg) no-repeat center center
+            background-size: 40px 40px
+            content: ''
+            width: 40px
+            height: 40px
+            left: 0
+            top: 0
+            position: absolute
+    &_space
+        position: relative
+        width: 40px
+        height: 40px
+        display: inline-block
+        &::after
+            background: url(../img/space.svg) no-repeat center center
+            background-size: contain
+            content: ''
+            width: 40px
+            height: 33px
+            left: 0
+            top: 0
+            position: absolute
 .space
     text-align: center
     margin-bottom: em(60px)
